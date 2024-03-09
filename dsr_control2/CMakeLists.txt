@@ -67,21 +67,21 @@ else()
   message($ENV{ROS_DISTRO})
 endif()
 
-add_executable(dsr_control_node2 ${SRC_FILES})
-#??? add_dependencies(dsr_control_node2 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-ament_target_dependencies(dsr_control_node2 rclcpp std_msgs sensor_msgs dsr_msgs2 controller_manager hardware_interface moveit_msgs)
+# add_executable(dsr_control_node2 ${SRC_FILES})
+# #??? add_dependencies(dsr_control_node2 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# ament_target_dependencies(dsr_control_node2 rclcpp std_msgs sensor_msgs dsr_msgs2 controller_manager hardware_interface moveit_msgs)
 
-#target_link_libraries(dsr_control_node2 ${catkin_LIBRARIES})
-target_link_libraries(dsr_control_node2 boost_system boost_thread)
-target_link_libraries(dsr_control_node2 DRFL PocoFoundation PocoNet)
+# #target_link_libraries(dsr_control_node2 ${catkin_LIBRARIES})
+# target_link_libraries(dsr_control_node2 boost_system boost_thread)
+# target_link_libraries(dsr_control_node2 DRFL PocoFoundation PocoNet)
 
 
-install(TARGETS dsr_control_node2
-  #??? ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  #??? LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  #??? RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-  DESTINATION lib/${PROJECT_NAME}
-)
+# install(TARGETS dsr_control_node2
+#   #??? ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#   #??? LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#   #??? RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+#   DESTINATION lib/${PROJECT_NAME}
+# )
 
 install(DIRECTORY launch
    #??? DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
