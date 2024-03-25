@@ -96,6 +96,15 @@ def get_ros2_nodes(context, *args):
         arguments=["joint_trajectory_controller", "-c", "/controller_manager"]
         + controller_manager_timeout,
     )
+    position_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        output="screen",
+        prefix=controller_manager_prefix,
+        remappings=[("/position_controller/commands", "/commands")],
+        arguments=["position_controller", "-c", "/controller_manager"]
+        + controller_manager_timeout,
+    )
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -106,7 +115,8 @@ def get_ros2_nodes(context, *args):
     )
 
     ros2_control_spawners = [
-        trajectory_controller_spawner,
+        # trajectory_controller_spawner,
+        position_controller_spawner,
         joint_state_broadcaster_spawner,
     ]
 

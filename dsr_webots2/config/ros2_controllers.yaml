@@ -6,6 +6,9 @@ controller_manager:
     joint_trajectory_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
+    position_controller:
+      type: position_controllers/JointGroupPositionController
+
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
@@ -23,3 +26,25 @@ joint_trajectory_controller:
     state_interfaces:
       - position
       - velocity
+
+position_controller:
+  ros__parameters:
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+    write_op_modes:
+       - joint1
+       - joint2
+       - joint3
+       - joint4
+       - joint5
+       - joint6
+    state_publish_rate: 25
+    action_monitor_rate: 20
+    constraints:
+      stopped_velocity_tolerance: 0.05
+      goal_time: 5
